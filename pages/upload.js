@@ -30,10 +30,6 @@ async function uploadToR2(file) {
     uploadFile = file
   }
 
-  if (uploadFile.size > 4 * 1024 * 1024) {
-    throw new Error('이미지가 너무 커요. 더 작은 이미지를 사용해주세요.')
-  }
-
   const res = await fetch(`/api/upload?filename=${encodeURIComponent(filename)}&contentType=image/jpeg`, {
     method: 'POST',
     body: uploadFile,
@@ -189,7 +185,6 @@ export default function Upload() {
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <div style={s.logo} />
             <span style={s.siteName}>자물쇠</span>
           </div>
           <button style={s.logoutBtn} onClick={() => { localStorage.removeItem('authed'); router.push('/') }}>로그아웃</button>
@@ -293,7 +288,6 @@ export default function Upload() {
 const s = {
   center: { minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fafafa', padding: '20px 16px', boxSizing: 'border-box' },
   card: { background: '#fff', padding: '24px 20px', borderRadius: 12, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, width: '100%', maxWidth: 480, border: '0.5px solid #e5e5e5', boxSizing: 'border-box' },
-  logo: { width: 28, height: 28, background: '#111', borderRadius: 6, flexShrink: 0 },
   siteName: { fontSize: 15, fontWeight: 500, color: '#111', letterSpacing: '-0.2px' },
   logoutBtn: { fontSize: 12, color: '#bbb', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' },
   divider: { width: '100%', height: '0.5px', background: '#e5e5e5' },

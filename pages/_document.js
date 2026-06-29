@@ -4,10 +4,7 @@ export default function Document() {
     <Html lang="ko">
       <Head>
         <title>자물쇠</title>
-        <style>{`body { margin: 0; background: #fafafa; }`}</style>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+        <style>{`body { margin: 0; background: #fafafa; font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }`}</style>
       </Head>
       <body>
         <Main />
